@@ -1,0 +1,24 @@
+{
+  "name": "node-with-babel",
+  "version": "1.0.0",
+  "description": "a simple babel setup for node programs",
+  "main": "index.js",
+  "repository": "git@github.com:shksa/node-with-babel.git",
+  "author": "shksa <sreekar339@gmail.com>",
+  "license": "MIT",
+  "private": false,
+  "devDependencies": {
+    "@babel/cli": "^7.0.0-beta.52",
+    "@babel/core": "^7.0.0-beta.52",
+    "@babel/plugin-proposal-class-properties": "^7.0.0-beta.52",
+    "@babel/preset-env": "^7.0.0-beta.52"
+  },
+  "dependencies": {
+    "@babel/polyfill": "^7.0.0-beta.52"
+  },
+  "scripts": {
+    "build": "babel src --out-dir build",
+    "execute-build": "node build/index.js",
+    "start": "yarn run build && yarn run execute-build"
+  }
+}
