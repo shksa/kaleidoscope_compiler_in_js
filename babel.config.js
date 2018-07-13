@@ -9,7 +9,7 @@ module.exports = function(api) {
           node: 'current'
         },
         useBuiltIns: "usage",
-        debug: true
+        // debug: true
       }
     ]
   ]
