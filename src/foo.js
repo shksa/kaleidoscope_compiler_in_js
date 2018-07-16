@@ -1,4 +1,4 @@
-class Foo {
+export default class Foo {
   propyProp = 'vines are funny'
   
   loggyLog = (msg) => {
@@ -6,4 +6,4 @@ class Foo {
   }
 }
 
-export default Foo
+console.log(Foo)
