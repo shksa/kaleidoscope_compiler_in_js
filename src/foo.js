@@ -1,9 +1,14 @@
-export default class Foo {
-  propyProp = 'vines are funny'
-  
-  loggyLog = (msg) => {
-    return `In loggyLog method, where "this" context refers to ${JSON.stringify(this)} and also ${msg}`
-  }
-}
+import * as llvm from 'llvm-node'
+import path from 'path';
 
-console.log(Foo)
+const context = new llvm.LLVMContext()
+const module = new llvm.Module('test', context)
+
+const intType = llvm.Type.getInt32Ty(context)
+const initializer = llvm.ConstantInt.get(context, 0)
+const globalVariable = new llvm.GlobalVariable(module, intType, true, llvm.LinkageTypes.InternalLinkage, initializer)
+
+const ll = module.print()
+console.log(ll);
+
+llvm.writeBitcodeToFile(module, path.resolve(__dirname, '../bitcode.txt'))
