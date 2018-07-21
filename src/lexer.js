@@ -1,5 +1,5 @@
 import moo from 'moo';
-import { mooLexerConfig } from './token';
+import { mooLexerConfig, validTokens } from './token';
 
 const lexer = moo.compile(mooLexerConfig)
 
@@ -9,8 +9,7 @@ function* generatorForTokens () {
       yield token
     }
   }
-  const eof = {type: 'eof', value: '\0'}
-  yield eof
+  yield validTokens.eof
 }
 
 lexer.tokenIterator = generatorForTokens()

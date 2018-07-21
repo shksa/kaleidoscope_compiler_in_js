@@ -28,10 +28,13 @@ export class Parser {
   parseCommaSeperated(parseFunction) {
     const values = []
     do {
-      const val = parseFunction()
+      const val = parseFunction.call(this)
       values.push(val)
+      if (is.comma(this.currentToken)){
+        this.consumeToken()
+      }
     } while (
-      !is.rightParen(this.currentToken) && is.comma(this.currentToken) && this.consumeToken()
+      !is.rightParen(this.currentToken)
     )
     return values
   }
@@ -143,7 +146,7 @@ export class Parser {
           break
         
         case validTokens.eof.value:
-          break;
+          return programAST
         
         default:
           const expressionAST = this.parseExpression()
@@ -152,6 +155,5 @@ export class Parser {
           break
       }
     }
-    return programAST
   }
 }

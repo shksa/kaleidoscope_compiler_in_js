@@ -12,12 +12,7 @@
       "args": [
         "--require",
         "@babel/register",
-        "-u",
-        "tdd",
-        "--timeout",
-        "999999",
-        "--colors",
-        "${workspaceFolder}/tests/*"
+        "${workspaceFolder}/tests/parser.test.js"
       ],
       "internalConsoleOptions": "openOnSessionStart"
     },

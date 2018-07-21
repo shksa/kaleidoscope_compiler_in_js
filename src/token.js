@@ -74,6 +74,9 @@ export const validTokens = {
   eof: {
     type: 'eof',
     value: '\0',
+    toString() {
+      return `EOF`
+    }
   }
 }
 

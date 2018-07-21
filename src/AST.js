@@ -1,22 +1,18 @@
 // Expression Node objects
 
-export class ExprNode {
-  nodeType = 'Expression'
-}
-
-export class NumberExprNode extends ExprNode {
+export class NumberExprNode {
   constructor(value) {
     this.value = value
   }
 }
 
-export class VariableExprNode extends ExprNode {
+export class VariableExprNode {
   constructor(name) {
     this.name = name
   }
 }
 
-export class BinaryExprAST extends ExprNode {
+export class BinaryExprAST {
   constructor(lhs, operator, rhs) {
     this.lhs = lhs
     this.operator = operator
@@ -24,7 +20,7 @@ export class BinaryExprAST extends ExprNode {
   }
 }
 
-export class CallExprAST extends ExprNode {
+export class CallExprAST {
   constructor(callee, args) {
     this.callee = callee
     this.args = args
