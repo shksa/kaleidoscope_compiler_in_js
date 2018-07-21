@@ -21,7 +21,7 @@ export class Parser {
     if(is.same(token, this.currentToken)) {
       this.consumeToken()
     } else {
-      throw parseError.unexpectedToken(token) 
+      throw parseError.unexpectedToken(this.currentToken) 
     }
   }
 
@@ -63,16 +63,16 @@ export class Parser {
         this.consumeToken()
         if (is.leftParen(this.currentToken)) {
           this.consumeToken()
-          const arguments = this.parseCommaSeperatedExpressions()
+          const args = this.parseCommaSeperatedExpressions()
           this.consume(validTokens.rightParen)
-          expressionAST = new AST.CallExprAST(identifierName, arguments)
+          expressionAST = new AST.CallExprAST(identifierName, args)
         } else {
           expressionAST = new AST.VariableExprNode(identifierName)
         }
         break
 
       default:
-        throw parseError.unexpectedToken(token)
+        throw parseError.unexpectedToken(this.currentToken)
     }
 
     if (is.operator(this.currentToken)) {
@@ -97,7 +97,7 @@ export class Parser {
       this.consumeToken()
       return token.value
     } else {
-      throw parseError.unexpectedToken(token) 
+      throw parseError.unexpectedToken(this.currentToken) 
     }
   }
 

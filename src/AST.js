@@ -25,9 +25,9 @@ export class BinaryExprAST extends ExprNode {
 }
 
 export class CallExprAST extends ExprNode {
-  constructor(callee, arguments) {
+  constructor(callee, args) {
     this.callee = callee
-    this.arguments = arguments
+    this.args = args
   }
 }
 

@@ -23,7 +23,8 @@
     "@babel/polyfill": "^7.0.0-beta.52"
   },
   "scripts": {
-    "test": "mocha --require @babel/register",
+    "test": "mocha --require @babel/register tests/*",
+    "test-only": "mocha --require @babel/register",
     "build": "babel src --out-dir build",
     "eval": "babel-node"
   }

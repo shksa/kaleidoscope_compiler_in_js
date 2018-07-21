@@ -36,21 +36,21 @@ export const mooLexerConfig = {
 export const validTokens = {
   semiColan: {
     type: 'semiColan',
-    value: ';'
+    value: ';',
   },
 
   number: {
-    type: 'number'
+    type: 'number',
   },
 
   def: {
     type: 'keyword',
-    value: 'def'
+    value: 'def',
   },
   
   extern: {
     type: 'keyword',
-    value: 'extern'
+    value: 'extern',
   },
   
   identifier: {
@@ -58,30 +58,28 @@ export const validTokens = {
   },
 
   operator: {
-    type: 'operator'
+    type: 'operator',
+    value: ''
   },
   
   leftParen: {
     type: 'leftParen',
-    value: '('
+    value: '(',
   },
   rightParen: {
     type: 'rightParen',
-    value: ')'
+    value: ')',
   },
 
   eof: {
     type: 'eof',
-    value: '\0'
+    value: '\0',
   }
 }
 
 export const is = {
   same(token1, token2) {
-    const isSameToken = 
-      (token1.type === token2.type && token1.value === token2.value)
-      ? true
-      : false
+    const isSameToken = (token1.type === token2.type)? true : false
     return isSameToken
   },
 
